@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JavaScript RPG</title>
+</head>
+<body>
+    <div id="effects">
+    <div class="screen ">
+        <div id="player-entire-menu">
+        <div id="player-menu">
+            <h1>YOU</h1>
+            <button onclick="playerAttackReady()">Attack</button>
+            <button onclick="itemMenuOpen()">Items</button><br>
+            <button onclick="playerAttackReady()">Assist</button>
+            <button onclick="playerCheckReady()">Check</button><br>
+            <div id="player-hp"></div>
+            <div id="player-mp"></div>
+        </div>
+        <div id="player-item-menu">
+            <button onclick="itemMenuClose()">BACK</button>
+            <button onclick="playerBoomerangReady()">Boomerang</button>
+            <button onclick="playerAttackReady()">Bomb</button><br>
+            
+            <button onclick="playerAttackReady()">Rope</button><br>
+        </div>
+</div>
+
+        <div id="enemy">
+
+            <img src="skeleton.png" alt="" srcset="">
+            <div id="damagedealt"></div>
+        </div>
+        <div id="battlelog"></div>
+        <div id="copyright">&copyJonathan Hill 2022</div>
+    </div></div>
+    <script src="battle.js"></script>
+    <script src="Items.js"></script>
+    <script src="dynamic-menu.js"></script>
+</body>
+</html>

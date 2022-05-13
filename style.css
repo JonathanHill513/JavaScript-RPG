@@ -1,0 +1,135 @@
+body{
+    font-family:'Wisdom of the World';
+    background:black;
+}
+#player-entire-menu{
+    transition: 1s;
+    z-index: 9999;
+}
+#player-entire-menu button :active{
+display: none;
+}
+#player-menu{
+    position: absolute;
+    background-color: black;
+    transition: 2s;
+    color: white;
+    border: 10px white groove;
+    border-radius: 0px 25px 0px 0px;
+    z-index: 9999;
+    margin:-10px
+
+}
+#player-menu span{
+    padding: 20px;
+
+}
+#player-menu button{
+    margin: 20px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    border-radius: 10px;;
+}
+#player-item-menu{
+    position: absolute;
+    background-color: black;
+    transition: .5s;
+    color: white;
+    border: 10px white groove;
+    border-radius: 25px;
+    z-index:9998;
+    left:-500px;
+    display: flex;
+}
+#player-item-menu span{
+    padding: 20px;
+
+}
+#player-item-menu button{
+    margin: 20px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    border-radius: 10px;;
+}
+#battlelog{
+    position: fixed;
+    top: 350px;
+    height: 250px;
+    width:90%;
+    background-color: black;
+    margin:0px 5%;
+    border: 8px groove whitesmoke;
+    padding:30px 0px;
+    overflow-y:scroll;
+    border-radius: 25px;
+    color:white;
+    font-size: 25px;
+}
+#player-menu h1{
+    text-align: right;
+    margin-right: 10px;
+}
+#battlelog span{
+    margin:40px;
+    animation-name: enemyhit;
+    animation-duration: .1s;
+    animation-iteration-count: 1;    
+}
+@keyframes h2 {
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
+#battlelog h2{
+    text-align: center;
+    animation-name: h2;
+    animation-duration: 2s;
+    animation-iteration-count: 1;    
+}
+#enemy-hurt{
+    animation-name: enemyhit;
+    animation-duration: .1s;
+    animation-iteration-count: 3;    
+}
+#enemy{
+    position: absolute;
+    width: 60%;
+    margin:0px 20%;
+    padding:20px;
+    text-align: center;
+
+}
+.shake{
+    animation-name: shake;
+    animation-duration: .02s;
+    animation-iteration-count: infinite; 
+    animation-direction: alternate;
+}
+#dead{
+    animation-name: dead;
+    animation-duration: 2s;
+    animation-iteration-count: 1; 
+    animation-direction:inherit;
+    opacity: 0%;
+}
+@keyframes enemyhit{
+    0%{opacity: 0%;};
+    100%{opacity: 100%;};
+}
+@keyframes shake{
+    0%{padding-left:10px;};
+    100%{padding-left:1000px;};
+}
+@keyframes dead{
+    0%{opacity:100%;};
+    100%{opacity:0%;};
+}
+#copyright{
+    color:white;
+    bottom:0px;
+    position: fixed;
+    font-family: 'Courier New', Courier, monospace;
+}
