@@ -1,8 +1,8 @@
 //Player base stats
-var playerHealth = 99
-var playerStrength = 1
+var playerHealth = 100
+var playerStrength = 10
 var playerSpeed = 20
-var playerMana = 99
+var playerMana = 100
 var playerDamageBonus = 0
 
 setInterval(() => {
@@ -51,7 +51,7 @@ function playerAttackReady(){
 
 //Player Attacking With Boomerang
 function playerBoomerangReady(){
-    playerDamageBonus=5;
+    playerDamageBonus=10;
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";
     document.getElementById('player-item-menu').style.left='-500px';
     var playerInitDamage = playerStrength;
@@ -63,17 +63,29 @@ function playerBoomerangReady(){
     setTimeout(playerAttack, 100);
 
 }
-//Player Checking Enemy
-function playerCheckReady(){
-    playerDamageBonus=200;
+//Using rope
+function playerRopeReady(){
+    playerDamageBonus=0;
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";
     document.getElementById('player-item-menu').style.left='-500px';
     var playerInitDamage = playerStrength;
-
-    playerStrength *= 0;
+    playerStrength *= playerDamageBonus;
     setTimeout(() => {
     playerStrength=playerInitDamage;
     }, 1000);
+    setTimeout(enemyTurnSkipped, 100);
+
+}
+//Player Checking Enemy
+function playerCheckReady(){
+    playerDamageBonus=0;
+    document.getElementById('player-entire-menu').style.marginLeft="-1000px";
+    document.getElementById('player-item-menu').style.left='-500px';
+    playerInitDamage = playerStrength;
+    playerStrength *= playerDamageBonus;
+    playerStrength *= 0;
+
+
     setTimeout(playerAttack, 100);
 
 }
@@ -120,6 +132,7 @@ function enemyAttackVar(){
 setInterval(enemyAttackVar, 10)
 //Enemy Attacking phase
 function enemyAttack(){
+    if(skipEnemy==0){
     var playerPrevHealth= playerHealth;
     playerHealth-= enemyAttackVariable+enemyStrength;
     var playerHealthDifference = playerPrevHealth - playerHealth;
@@ -127,7 +140,11 @@ function enemyAttack(){
     document.getElementById('effects').classList.add('shake');
     setTimeout(() => {
     document.getElementById('effects').classList.remove('shake');    
-    }, 500);    
+    }, 500);
+} 
+else{
+    setTimeout(escapeAttempt, 500)
+}   
     document.getElementById('player-entire-menu').style.marginLeft="0px";
     
 
