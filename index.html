@@ -8,8 +8,10 @@
     <title>JavaScript RPG</title>
 </head>
 <body>
-    <div id="effects">
-    <div class="screen ">
+    <!-- xp loader, only temporary -->
+
+    <div id="effects" >
+
         <div id="player-entire-menu">
         <div id="player-menu">
             <h1>YOU</h1>
@@ -23,9 +25,9 @@
         <div id="player-item-menu">
             <button onclick="itemMenuClose()">BACK</button>
             <button onclick="playerBoomerangReady()">Boomerang</button>
-            <button onclick="playerAttackReady()">Bomb</button><br>
+            <button onclick="playerBombReady()">Bomb<br><div id="bombcount"></div></button><br>
             
-            <button onclick="playerRopeReady()">Rope</button><br>
+            <button onclick="playerRopeReady()">Rope<br><div id="ropecount"></div></button><br>
         </div>
 </div>
 
@@ -36,10 +38,13 @@
         </div>
         <div id="battlelog"></div>
         <div id="copyright">&copyJonathan Hill 2022</div>
-    </div></div>
+</div>
+    <!-- <script src="Xp.js"></script> -->
     <script src="battle.js"></script>
     <script src="Items.js"></script>
     <script src="dynamic-menu.js"></script>
     <script src="turnskip.js"></script>
+    <script src="enemyonfire.js"></script>
+
 </body>
 </html>

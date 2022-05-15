@@ -13,20 +13,23 @@ function enemyTurnSkipped(){
 
     setTimeout(() => {
     console.log('That dealt... '+enemyHealthDifference+' hp');
-    document.getElementById('battlelog').innerHTML+= '<span>Using Rope dealt '+enemyHealthDifference+' damage and Skeleton cannot move!!!</span><br>';
+    document.getElementById('battlelog').innerHTML+= '<span>Using Rope dealt '+enemyHealthDifference+' damage and Skeleton cannot move!!!</span><br><br>';
     console.log(enemyHealthDifference);
     document.getElementById('enemy').innerHTML="<img src='skeleton.png' alt='' srcset=''>";
     }, 500);
-    document.getElementById('player-entire-menu').style.marginLeft="0px";
+    setTimeout(() => {
+    document.getElementById('player-entire-menu').style.marginLeft="0px";        
+    }, 500);
+
     skipEnemy = 1
 }
 function escapeAttempt(){
     if(skipEnemy==1){
-        document.getElementById('battlelog').innerHTML+= '<span>Skeleton is struggling to escape!!!<br>';
+        document.getElementById('battlelog').innerHTML+= '<span>Skeleton is struggling to escape!!!<br><br>';
         breakOutAttempt += breakOut;
     }
     if(breakOutAttempt>breakOutValue){
-        document.getElementById('battlelog').innerHTML+= '<span>Skeleton has finally escaped!!!<br>';
+        document.getElementById('battlelog').innerHTML+= '<span>Skeleton has finally escaped!!!<br><br>';
         skipEnemy=0;
     }
 }

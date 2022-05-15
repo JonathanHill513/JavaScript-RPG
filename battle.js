@@ -1,8 +1,8 @@
 //Player base stats
-var playerHealth = 100
-var playerStrength = 10
-var playerSpeed = 20
-var playerMana = 100
+var playerHealth = 20
+var playerStrength = 1
+var playerSpeed = 10
+var playerMana = 10
 var playerDamageBonus = 0
 
 setInterval(() => {
@@ -10,9 +10,15 @@ setInterval(() => {
 }, 500);
 
 //Enemy stats
-var enemyHealth =100
-var enemyStrength = 10
-var enemySpeed = 20
+var enemyHealth =20
+var enemyStrength = 0
+var enemySpeed = 5
+var enemyWeakness ="???"
+var enemyBio = "Description of enemy here"
+var enemyStats =`<br>HP: ${enemyHealth}<br>Strength: ${enemyStrength}<br>Speed: ${enemySpeed}<br>Weakness: ${enemyWeakness}<br> ${enemyBio}`
+
+var postXp = enemyHealth+enemyStrength+enemySpeed;
+
 
 //Enemy attacks
 var enemyAttacks = [
@@ -63,8 +69,25 @@ function playerBoomerangReady(){
     setTimeout(playerAttack, 100);
 
 }
+//Player Attacking With BOMB
+
+function playerBombReady(){
+if(currentBombs>0){    
+    playerDamageBonus=20;
+    document.getElementById('player-entire-menu').style.marginLeft="-1000px";
+    document.getElementById('player-item-menu').style.left='-500px';
+    var playerInitDamage = playerStrength;
+    playerStrength += playerDamageBonus;
+    setTimeout(() => {
+    playerStrength=playerInitDamage;
+    }, 1000);
+    setTimeout(playerAttack, 100);
+    currentBombs--;
+}
+}
 //Using rope
 function playerRopeReady(){
+    if(currentRope>0){
     playerDamageBonus=0;
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";
     document.getElementById('player-item-menu').style.left='-500px';
@@ -74,19 +97,15 @@ function playerRopeReady(){
     playerStrength=playerInitDamage;
     }, 1000);
     setTimeout(enemyTurnSkipped, 100);
-
+    currentRope--;
+}
 }
 //Player Checking Enemy
 function playerCheckReady(){
-    playerDamageBonus=0;
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";
     document.getElementById('player-item-menu').style.left='-500px';
-    playerInitDamage = playerStrength;
-    playerStrength *= playerDamageBonus;
-    playerStrength *= 0;
-
-
-    setTimeout(playerAttack, 100);
+    document.getElementById('battlelog').innerHTML+= '<span>Skeleton: '+enemyStats+'</span><br><br>';
+    setTimeout(enemyAttack, 1000);
 
 }
 
@@ -108,7 +127,7 @@ function playerAttack(){
 
     setTimeout(() => {
     console.log('That dealt... '+enemyHealthDifference+' hp');
-    document.getElementById('battlelog').innerHTML+= '<span>You dealt '+enemyHealthDifference+' damage!!!</span><br>';
+    document.getElementById('battlelog').innerHTML+= '<span>You dealt '+enemyHealthDifference+' damage!!!</span><br><br>';
     console.log(enemyHealthDifference);
     document.getElementById('enemy').innerHTML="<img src='skeleton.png' alt='' srcset=''>";
     }, 500);
@@ -117,7 +136,10 @@ function playerAttack(){
     setTimeout(() => {
         if(enemyHealth < 0){
             document.getElementById('battlelog').innerHTML+= '<span><h2>YOU WIN!!!</h2></span><br>';
+            document.getElementById('battlelog').innerHTML+= "<span>You received "+ postXp+" xp</span><br>";            
             document.getElementById('enemy').innerHTML="<img src='skeleton.png' id='dead' alt='' srcset=''>";
+
+
         }
     }, 1000);
 if(enemyHealth>=0){
@@ -136,15 +158,17 @@ function enemyAttack(){
     var playerPrevHealth= playerHealth;
     playerHealth-= enemyAttackVariable+enemyStrength;
     var playerHealthDifference = playerPrevHealth - playerHealth;
-    document.getElementById('battlelog').innerHTML+= '<span>Skeleton dealt '+ playerHealthDifference +' damage!!!</span><br>';
+    document.getElementById('battlelog').innerHTML+= '<span>Skeleton dealt '+ playerHealthDifference +' damage!!!</span><br><br>';
     document.getElementById('effects').classList.add('shake');
     setTimeout(() => {
     document.getElementById('effects').classList.remove('shake');    
     }, 500);
+    
 } 
 else{
     setTimeout(escapeAttempt, 500)
 }   
+
     document.getElementById('player-entire-menu').style.marginLeft="0px";
     
 
@@ -153,7 +177,7 @@ else{
 if(playerHealth<=0){
     setTimeout(playerDead, 300)};
 function playerDead(){
-    document.getElementById('battlelog').innerHTML+= '<span><h2>YOU LOSE!!!</h2></span><br>';
+    document.getElementById('battlelog').innerHTML+= '<span><h2>YOU LOSE!!!</h2></span><br><br>';
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";    
 }    
 }
