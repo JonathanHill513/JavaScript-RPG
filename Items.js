@@ -8,7 +8,7 @@ function itemMenuClose(){
 }
 //ITEMS LIMIT
 var maxBombs = 5;
-var currentBombs = 3;
+var currentBombs = 5;
 
 var maxRope = 5;
 var currentRope = 5;

@@ -56,8 +56,8 @@ var rat2 = [
     rat2Health : 15,
     rat2Strength : 3,
     rat2Speed : 85,
-    rat2Weakness : "Has a crippling cheese addiction.",
-    rat2Bio : "A very weak creature when alone. This time it's armed, don't underestimate it!",
+    rat2Weakness : "Has a crippling cheese addiction!",
+    rat2Bio : "A very weak creature, nah just kidding... this time it's armed and kinda dangerous, don't underestimate it!",
     rat2Image : "<img src='./Enemy Sprites/rat2.png' alt='' srcset=''>",
     rat2Hurt : "<img id='enemy-hurt' src='./Enemy Sprites/rat2.png' alt='' srcset=''>",
     rat2Dead : "<img src='./Enemy Sprites/rat2.png' id='dead' alt='' srcset=''>"}
@@ -67,8 +67,8 @@ var pudding = [
     puddingHealth : 45,
     puddingStrength : 25,
     puddingSpeed : 15,
-    puddingWeakness : "Spoons, dessert enthusiast, and .",
-    puddingBio : "A very weak creature when alone. This time it's armed, don't underestimate it!",
+    puddingWeakness : "Spoons and dessert enthusiasts.",
+    puddingBio : "Dislikes picky eaters who refuse to eat anything other than chicken nuggets and soda!",
     puddingImage : "<img src='./Enemy Sprites/puddin.png' alt='' srcset=''>",
     puddingHurt : "<img id='enemy-hurt' src='./Enemy Sprites/puddin.png' alt='' srcset=''>",
     puddingDead : "<img src='./Enemy Sprites/puddin.png' id='dead' alt='' srcset=''>"}
@@ -89,7 +89,7 @@ var skeleton = [
     skeletonHealth : 20,
     skeletonStrength : 9,
     skeletonSpeed : 10,
-    skeletonWeakness : "???",
+    skeletonWeakness : "Sunlight and working out.",
     skeletonBio : "A weak monster, loves chili dogs.",
     skeletonImage : "<img src='./Enemy Sprites/skeleton.png' alt='' srcset=''>",
     skeletonHurt : "<img id='enemy-hurt' src='./Enemy Sprites/skeleton.png' alt='' srcset=''>",
@@ -112,7 +112,7 @@ var duck = [
     duckStrength : 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
     duckSpeed : 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
     duckWeakness : "Nothing, begin to beg for it's mercy!",
-    duckBio : "The almighty God Eater itself, kneel in front of it and pray for a miracle because you are not going to even leave a scratch on an absolute unit like this.",
+    duckBio : "The almighty World Eater itself, kneel in front of it and pray for a miracle because you are not going to even leave a scratch on an absolute unit like this.",
     duckImage : "<img src='./Enemy Sprites/duck.png' alt='' srcset=''>",
     duckHurt : "<img id='enemy-hurt' src='./Enemy Sprites/duck.png' alt='' srcset=''>",
     duckDead : "<img src='./Enemyduck.png' id='dead' alt='' srcset=''>"}
@@ -140,20 +140,21 @@ var duck = [
 //     },
 // ]
 
-var currentEnemyNum = 0;
-//Enemy Picker RNG
-setInterval(() => {
-currentEnemyNum = Math.floor(Math.random()*10); 
-}, 100);
 
+//Enemy Picker RNG
+
+var currentEnemyNum = 1;
 function enemyPick(){
-currentEnemyNum;
-return;
+
+setInterval(() => {
+currentEnemyNumAdd = Math.floor(Math.random()*5); 
+}, 1);    
+currentEnemyNum+=currentEnemyNumAdd
 }
 
 
 function enemyCheck(){
-if(currentEnemyNum >= 999990){
+if(currentEnemyNum == 1){
     console.log(currentEnemy);
     currentEnemy = 'Rat';
      currentEnemyImg = rat[0].ratImage;
@@ -168,7 +169,7 @@ if(currentEnemyNum >= 999990){
      currentEnemyHurt = rat[0].ratHurt;
      currentEnemyDead = rat[0].ratDead;
 }
-if(currentEnemyNum >= 999990){
+if(currentEnemyNum == 2){
     console.log(currentEnemy);
     currentEnemy = 'Rat2';
      currentEnemyImg = rat2[0].rat2Image;
@@ -183,7 +184,7 @@ if(currentEnemyNum >= 999990){
      currentEnemyHurt = rat2[0].rat2Hurt;
      currentEnemyDead = rat2[0].rat2Dead;
 }
-if(currentEnemyNum>09990){
+if(currentEnemyNum == 3){
     console.log(currentEnemy);
     currentEnemy == 'Puddin';
      currentEnemyImg = pudding[0].puddingImage;
@@ -198,7 +199,7 @@ if(currentEnemyNum>09990){
      currentEnemyHurt = pudding[0].puddingHurt;
      currentEnemyDead = pudding[0].puddingDead;
 }
-if(currentEnemyNum>=909990){
+if(currentEnemyNum == 4){
     console.log(currentEnemy);
     currentEnemy == '';
      currentEnemyImg = clown[0].clownImage;
@@ -213,7 +214,7 @@ if(currentEnemyNum>=909990){
      currentEnemyHurt = clown[0].clownHurt;
      currentEnemyDead = clown[0].clownDead;
 }
-if(currentEnemyNum >= 998){
+if(currentEnemyNum == 5){
     console.log(currentEnemy);
     currentEnemy = 'Skeleton';
      currentEnemyImg = skeleton[0].skeletonImage;
@@ -228,7 +229,7 @@ if(currentEnemyNum >= 998){
      currentEnemyHurt = skeleton[0].skeletonHurt;
      currentEnemyDead = skeleton[0].skeletonDead;
 }
-if(currentEnemyNum >= 9999){
+if(currentEnemyNum == 6){
     console.log(currentEnemy);
     currentEnemy = 'Reaper';
      currentEnemyImg = reaper[0].reaperImage;
@@ -243,7 +244,7 @@ if(currentEnemyNum >= 9999){
      currentEnemyHurt = reaper[0].reaperHurt;
      currentEnemyDead = reaper[0].reaperDead;
 }
-     if(currentEnemyNum>=0){
+     if(currentEnemyNum=0){
     console.log(currentEnemy);
     currentEnemy = 'Duck';
      currentEnemyImg = duck[0].duckImage;
