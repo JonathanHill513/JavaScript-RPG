@@ -9,7 +9,9 @@
 </head>
 <body>
     <!-- xp loader, only temporary -->
-
+<div id="blackscreen"></div>
+<div id="sfx"></div>
+<div id="bgm"></div>
     <div id="effects" >
 
         <div id="player-entire-menu">
@@ -17,30 +19,116 @@
             <h1>YOU</h1>
             <button onclick="playerAttackReady()">Attack</button>
             <button onclick="itemMenuOpen()">Items</button><br>
-            <button onclick="playerAttackReady()">Assist</button>
+            <button onclick="run()">Run</button>
             <button onclick="playerCheckReady()">Check</button><br>
             <div id="player-hp"></div>
             <div id="player-mp"></div>
+            <div id="player-xp"></div>
         </div>
         <div id="player-item-menu">
             <button onclick="itemMenuClose()">BACK</button>
             <button onclick="playerBoomerangReady()">Boomerang</button>
-            <button onclick="playerBombReady()">Bomb<br><div id="bombcount"></div></button><br>
-            
+            <button onclick="playerBombReady()" id="bombcount"></button><br>
             <button onclick="playerRopeReady()">Rope<br><div id="ropecount"></div></button><br>
         </div>
 </div>
 
         <div id="enemy">
 
-            <img src="skeleton.png" alt="" srcset="">
+            <!-- <img src="reaper.png" alt="" id="hurt" srcset=""> -->
             <div id="damagedealt"></div>
         </div>
         <div id="battlelog"></div>
         <div id="copyright">&copyJonathan Hill 2022</div>
 </div>
-    <!-- <script src="Xp.js"></script> -->
-    <script src="battle.js"></script>
+<div id="overworld">
+    <div class="icon" id="chest" onclick="openOverWorldMenu()"></div>
+    <div id="player-overworld-menu">
+        <h1>YOU</h1>
+        <button onclick="closeOverWorldMenu()">BACK</button>
+        <button onclick="openOverWorldEquip()">Equip</button><br>
+        <button onclick="openOverWorldInv()">Inventory</button>
+        <button onclick="openOverWorldStats()">Stats</button>
+
+        <div id="player-overworld-hp"></div>
+        <div id="player-overworld-mp"></div>
+        <div id="player-overworld-xp"></div>
+
+    </div>
+    <div id="info-pages">
+        <div id="player-overworld-stats">
+            <div class="menu-section">
+                <span>STATS</span><hr>
+
+                <button onclick="closeOverWorldStats()">BACK</button><br><br>
+                <span>NAME: PLACEHOLDER</span><br>
+                <div id="player-overworld-stats-hp"></div>
+                <div id="player-overworld-stats-mp"></div>
+                <div id="player-overworld-stats-level"></div>
+                <div id="player-overworld-stats-exp"></div>
+                <hr>
+                <!-- <span>EXPERIENCE POINTS: 355</span><br> -->
+            </div>
+            
+        </div>
+        <div id="player-overworld-inventory">
+            <div class="menu-section">
+                <span>INVENTORY</span><hr>
+
+                <button onclick="closeOverWorldInv()">BACK</button><br><br>
+                <div id="player-overworld-inventory-bombs"></div><br>
+                <div id="player-overworld-inventory-rope"></div><br>
+
+            </div>
+            
+        </div>
+        <div id="player-overworld-equip">
+            <div class="menu-section">
+                <span>EQUIP</span><hr>
+
+                <button onclick="closeOverWorldEquip()">BACK</button><br><br>
+
+                <span>Sword o' the Chosen One</span><button onclick="equipSword">Equip</button><br>
+                <span>Dagger</span><button>Equip</button><br>
+                <span>Pick Axe</span><button>Equip</button><br>
+                <span>Pocket Knife</span><button>Equip</button><br>
+
+            </div>
+            
+        </div>
+
+    </div>
+    <div id="pov">
+
+    </div>
+    <div id="movement"></div>
+<div id="player">
+
+</div>
+<div id="controls">
+   <!-- <button onclick="battle()">FIGHT</button> -->
+   <button onclick="battle()">FIGHT</button>
+   <button onclick="playerMoveUp()">forward</button>
+   <button onclick="playerMoveDown()">backward</button>
+   <button onclick="playerTurnLeft()">turn left</button>
+   <button onclick="playerTurnRight()">turn right</button>
+</div>
+
+</div>
+
+<script src="./sound/bgm/bgm.js"></script>
+<script src="./sound/sfx/sfx.js"></script>
+<script src="Overworld menu.js"></script>
+<script src="Xp.js"></script>
+<script src="battle.js"></script>
+<script src="Run attempt.js"></script>
+<script src="overworld.js"></script>
+<script src="map1.js"></script>
+<script src="transitions.js"></script>
+
+
+
+
     <script src="Items.js"></script>
     <script src="dynamic-menu.js"></script>
     <script src="turnskip.js"></script>

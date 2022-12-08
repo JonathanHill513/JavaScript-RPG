@@ -1,8 +1,103 @@
-
+#blackscreen{
+    background-color: black;
+    width: 9999px;
+    height:9999px;
+    position: fixed;
+    z-index: 9998;
+    transition: 9s;
+    display: none;
+    
+}
+#player-overworld-stats{
+    position: fixed;
+    z-index: 9999;
+    left:-1000px;
+    transition: .2s;
+}
+#player-overworld-inventory{
+    position: fixed;
+    z-index: 9999;
+    left:-1000px;
+    transition: .2s;
+    
+}
+#player-overworld-equip{
+    position: fixed;
+    z-index: 9999;
+    left:-1000px;
+    transition: .2s;
+}
+.menu-section{
+    position: fixed;
+    background-color: black;
+    transition: 2s;
+    color: white;
+    border: 10px white groove;
+    border-radius: 5px;
+    z-index: 9999;
+    padding:20px;
+    max-width: 500px;
+}
+.menu-section button{
+    margin: 20px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    border-radius: 10px;;
+}
+.icon{
+    border: 1px white groove;
+    height: 100px;
+    width: 100px;
+    color: white;
+    border-radius: 25px;
+}
+#chest{
+    background-image: url('./chest.png');
+    background-position: center;
+    background-size: 100px;
+    position:fixed;
+    bottom:0px;
+    margin:0px 45%
+}
 body{
     /* font-family:'Wisdom of the World'; */
     background:black;
 }
+/* OVERWORLD RELATED CSS */
+/* #player{
+    position:relative;
+    background:green;
+    height: 400px;
+    width:100px;
+} */
+#controls{
+    color:white;
+    position: fixed;
+    right:0px;
+}
+#xMove span{
+    padding:100px;
+    position: absolute;
+}
+/* ROOMS */
+#pov{
+    position: absolute;
+}
+/* #deadend{
+    display: none;
+}
+#hall{
+    display: none;
+}
+#wall{
+    display: none;
+}
+#intersection{
+    display: none;
+} */
+/* BATTLE RELATED CSS */
 #player-entire-menu{
     transition: 1s;
     z-index: 9999;
@@ -18,13 +113,19 @@ display: none;
     border: 10px white groove;
     border-radius: 0px 25px 0px 0px;
     z-index: 9999;
-    margin:-10px
+    margin:-10px;
 
 }
+ 
 #player-menu span{
     padding: 20px;
 
 }
+
+
+
+
+
 #player-menu button{
     margin: 20px;
     padding:10px;
@@ -32,6 +133,34 @@ display: none;
     color:white;
     border: 1px solid white;
     border-radius: 10px;;
+}
+#player-overworld-menu{
+    position: absolute;
+    background-color: black;
+    transition: .5s;
+    color: white;
+    border: 10px white groove;
+    border-radius: 0px 25px 0px 0px;
+    z-index: 9999;
+    margin:-10px;
+    left:-300px
+
+}
+ 
+#player-overworld-menu span{
+    padding: 20px;
+
+}
+#player-overworld-menu button{
+    margin: 20px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    border-radius: 10px;;
+}
+#player-overworld-inventory{
+    overflow-y: scroll;
 }
 #player-item-menu{
     position: absolute;
@@ -69,6 +198,7 @@ display: none;
     border-radius: 25px;
     color:white;
     font-size: 25px;
+    z-index: 9999;
 }
 #player-menu h1{
     text-align: right;
@@ -97,8 +227,8 @@ display: none;
     margin:0px 20%;
     padding:20px;
     text-align: center;
-
 }
+
 /*ANIMATIONS TO THE BATTLE UI SCREEN THAT GET ADDED VIA IDS OR CLASSES*/
 #enemy-hurt{
     animation-name: enemyhit;
@@ -133,8 +263,8 @@ display: none;
     100%{padding-left:1000px;};
 }
 @keyframes dead{
-    0%{opacity:100%;};
-    100%{opacity:0%;}
+    0%{opacity: 100%;}
+    100%{opacity: 0%;}
 }
 #copyright{
     color:white;
