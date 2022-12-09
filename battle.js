@@ -1,5 +1,5 @@
 //Player base stats
-var playerHealth = 20
+var playerHealth = 10
 var playerStrength = 1
 var playerSpeed = 20
 var playerMana = 10
@@ -244,7 +244,7 @@ if(currentEnemyNum == 6){
      currentEnemyHurt = reaper[0].reaperHurt;
      currentEnemyDead = reaper[0].reaperDead;
 }
-     if(currentEnemyNum=0){
+     if(currentEnemyNum==-1){
     console.log(currentEnemy);
     currentEnemy = 'Duck';
      currentEnemyImg = duck[0].duckImage;
@@ -279,19 +279,25 @@ if(currentEnemyNum == 6){
 //      currentEnemyDead = [0].Dead;
 // }
 
-
+//Scroll down automatically on battlelog
+function scrollDown(){
+    var objDiv = document.getElementById('battlelog');
+    objDiv.scrollTop = objDiv.scrollHeight;
+}
 
 
 
 //Battle system
 function battle(){
     fightStart = true;
-    setTimeout(enemyCheck,2);
+
+    setTimeout(enemyCheck,0);
     setTimeout(enemyPick,1);
     setTimeout(playSong1,1);
     setTimeout(() => {
         document.getElementById('enemy').innerHTML=currentEnemyImg;
         postXp = enemyHealth+enemyStrength+enemySpeed;
+        document.getElementById('battlelog').innerHTML+= '<span>'+currentEnemyName+' steps forth, ready for battle...</span><br><br>'    
     }, 3);
     
 }
@@ -370,6 +376,7 @@ function playerCheckReady(){
     document.getElementById('player-item-menu').style.left='-500px';
     document.getElementById('battlelog').innerHTML+= '<span>'+currentEnemyName+': '+enemyStats+'</span><br><br>';
     setTimeout(enemyAttack, 1000);
+    setTimeout(scrollDown,500)
 
 }
 
@@ -396,6 +403,7 @@ function playerAttack(){
     console.log(enemyHealthDifference);
     document.getElementById('enemy').innerHTML=currentEnemyImg;
     }, 500);
+    setTimeout(scrollDown,500)
 
 //Checking if enemy is dead or not
     setTimeout(() => {
@@ -408,6 +416,7 @@ function playerAttack(){
             setTimeout(fightOver, 2000);
             setTimeout(playVictory,100);
             currentXp += postXp;  
+            setTimeout(scrollDown,500)
             
 
 
@@ -435,6 +444,7 @@ function enemyAttack(){
     setTimeout(() => {
     document.getElementById('effects').classList.remove('shake');    
     }, 500);
+    setTimeout(scrollDown,500)
     
 } 
 else{
@@ -451,6 +461,7 @@ if(playerHealth<=0){
 function playerDead(){
     document.getElementById('battlelog').innerHTML+= '<span><h2>YOU LOSE!!!</h2></span><br><br>';
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";    
+    setTimeout(scrollDown,500)
 }    
 }
 

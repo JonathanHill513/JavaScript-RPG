@@ -20,6 +20,7 @@ function enemyTurnSkipped(){
     setTimeout(() => {
     document.getElementById('player-entire-menu').style.marginLeft="0px";        
     }, 500);
+    setTimeout(scrollDown,500)
 
     skipEnemy = 1
 }
@@ -27,9 +28,11 @@ function escapeAttempt(){
     if(skipEnemy==1){
         document.getElementById('battlelog').innerHTML+= '<span>'+currentEnemyName+' is struggling to escape!!!<br><br>';
         breakOutAttempt += breakOut;
+        setTimeout(scrollDown,500)
     }
     if(breakOutAttempt>breakOutValue){
         document.getElementById('battlelog').innerHTML+= '<span>'+currentEnemyName+' has finally escaped!!!<br><br>';
         skipEnemy=0;
+        setTimeout(scrollDown,500)
     }
 }

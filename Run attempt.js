@@ -15,5 +15,5 @@ function run(){
             }, 1000);
             setTimeout(enemyAttack, 2000)
     }
-
+    setTimeout(scrollDown,500)
 }

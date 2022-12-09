@@ -75,8 +75,9 @@ body{
 #controls{
     color:white;
     position: fixed;
-    right:0px;
+    /* right:0px; */
 }
+
 #xMove span{
     padding:100px;
     position: absolute;
@@ -195,10 +196,12 @@ display: none;
     border: 8px groove whitesmoke;
     padding:30px 0px;
     overflow-y:scroll;
+    overflow-anchor:auto;
     border-radius: 25px;
     color:white;
     font-size: 25px;
     z-index: 9999;
+    scroll-behavior: smooth;
 }
 #player-menu h1{
     text-align: right;
@@ -272,3 +275,61 @@ display: none;
     position: fixed;
     font-family: 'Courier New', Courier, monospace;
 }
+/* Mobile compatibility */
+@media(max-width:500px){
+    #controls{
+        top:200px;
+        margin: 0px 15%;
+        width: 70%;
+    }
+    #pov img{
+    /* margin: 0px 5%; */
+    width: 90%;
+    margin: 0px 5%;
+    }
+    #chest{
+        position: fixed;
+        bottom: 10%;
+        width: 40%;
+        margin: 0px 30%;
+        background-repeat: no-repeat;
+    }
+    #enemy img{
+    /* position: fixed; */
+    /* right:0px; */
+    /* top: 10px; */
+    width: 100%;
+    /* width: 90%; */
+    /* margin:0px 5% */
+    }
+    #player-menu{
+    width: 30%;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    }
+    #player-menu h1{
+        text-align: center;
+    }
+    #player-item-menu{
+        margin-left:-50%;
+        
+        z-index: 9999;
+        display: inline-block;
+    }
+    #battlelog{
+        width: 92%;
+        height: 100px;
+        margin: 0px;
+        /* position:fixed; */
+        /* right:0px; */
+        z-index: 9998;
+
+    }
+    .player-stats-battle{
+    position: fixed;
+    top:40%;
+    background-color: black;
+    }
+    }
