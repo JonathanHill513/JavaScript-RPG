@@ -1,5 +1,5 @@
 //Player base stats
-var playerHealth = 10
+var playerHealth = 50
 var playerStrength = 1
 var playerSpeed = 20
 var playerMana = 10
