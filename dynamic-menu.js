@@ -25,8 +25,8 @@ function playerCheck(){
 setInterval(() => {
     document.getElementById('player-hp').innerHTML="<span>HP: "+playerHealth+"</span>";
     document.getElementById('player-mp').innerHTML="<span>MP: "+playerMana+"</span>";
-    document.getElementById('player-xp').innerHTML="<span>XP: "+currentXp+"</span>";
+    document.getElementById('player-xp').innerHTML="<span>LVL: "+level+"</span>";
     document.getElementById('player-overworld-hp').innerHTML="<span>HP: "+playerHealth+"</span>";
     document.getElementById('player-overworld-mp').innerHTML="<span>MP: "+playerMana+"</span>";
-    document.getElementById('player-overworld-xp').innerHTML="<span>XP: "+currentXp+"</span>";
+    document.getElementById('player-overworld-xp').innerHTML="<span>LVL: "+level+"</span>";
 }, 100);

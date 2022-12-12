@@ -1,17 +1,25 @@
 //Player base stats
-var playerHealth = 50
+var playerMaxHealth = 20
+var playerHealth = 20
 var playerStrength = 1
-var playerSpeed = 20
+var playerSpeed = 10
+var playerMaxMana = 10
 var playerMana = 10
 var playerDamageBonus = 0
 var currentXp = 0;
 var level = 1;
-// var xpReq = level*30;
+// var xpReq = 50;
+
+setInterval(() => {
+xpReq = (level*level)*50;      
+}, 100);
+  
+
 
 //Max Stats
 setInterval(() => {
-if(playerHealth>=255){
-    playerHealth = 255;
+if(playerHealth>=playerMaxHealth){
+    playerHealth = playerMaxHealth;
 }    
 }, 10);
 
@@ -43,8 +51,8 @@ var postXp = enemyHealth+enemyStrength+enemySpeed;
 var rat = [
 {   ratName : 'Just a Rat',
     ratHealth : 10,
-    ratStrength : 0,
-    ratSpeed : 90,
+    ratStrength : 1,
+    ratSpeed : 40,
     ratWeakness : "Wanders alone too often!",
     ratBio : "A very weak creature when alone. May carry diseases. Be sure to wash your hands after handling!",
     ratImage : "<img src='./Enemy Sprites/rat.png' alt='' srcset=''>",
@@ -382,7 +390,7 @@ function playerCheckReady(){
 
 //Randomizes players atk damage by adding 
 function playerAttackVar(){
- playerAttackVariable = Math.floor(Math.random()*10)+playerStrength    
+ playerAttackVariable = Math.floor(Math.random()*10)+playerStrength;
 }
 
 setInterval(playerAttackVar, 10)
@@ -405,7 +413,34 @@ function playerAttack(){
     }, 500);
     setTimeout(scrollDown,500)
 
-//Checking if enemy is dead or not
+
+//Check if criteria was met to level up
+function xpCheck(){
+    if(currentXp>xpReq){
+    playerHealth += (level*3);
+    playerMaxHealth += (level*3);
+    playerStrength += (level*3);
+    playerSpeed += (level*3);
+    playerMaxMana+= (level*3);
+    playerMana+= (level*3);
+    level++;
+
+   
+
+
+
+    console.log('LEVEL UP!!!')
+    setTimeout(stopMusic, 1500)
+    setTimeout(playSongLevelUp, 1500)
+    setTimeout(() => {
+    document.getElementById('battlelog').innerHTML+='<span><br><h2>LEVEL UP!!!</h2></span><span><br>You are now Level '+level+'!!!</span>'    
+    }, 1500);
+    setTimeout(scrollDown, 1500)
+
+    }
+    }
+
+//Checking if enemy is dead or not    
     setTimeout(() => {
         if(enemyHealth < 0){
             document.getElementById('battlelog').innerHTML+= '<span><h2>YOU WIN!!!</h2></span><br>';
@@ -413,11 +448,17 @@ function playerAttack(){
             document.getElementById('enemy').innerHTML=currentEnemyDead;
             skipEnemy = 0;
             setTimeout(xpCheck,10)
-            setTimeout(fightOver, 2000);
             setTimeout(playVictory,100);
             currentXp += postXp;  
             setTimeout(scrollDown,500)
-            
+            if(currentXp>xpReq){   
+            setTimeout(stopSound, 0)                
+            setTimeout(fightOver, 7000);
+   
+            }else{
+                setTimeout(fightOver, 2000);   
+            }
+           
 
 
         }
@@ -462,6 +503,10 @@ function playerDead(){
     document.getElementById('battlelog').innerHTML+= '<span><h2>YOU LOSE!!!</h2></span><br><br>';
     document.getElementById('player-entire-menu').style.marginLeft="-1000px";    
     setTimeout(scrollDown,500)
+
+    setTimeout(() => {
+        document.getElementById('game-container').style.opacity='0%'
+    }, 2000);
 }    
 }
 

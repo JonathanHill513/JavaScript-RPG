@@ -1,9 +1,23 @@
+html{
+    font-family: earthboundzero ;
+}
+html button{
+    font-family: earthboundzero;
+}
+#game-container{
+    transition: 2s;
+}
+#game-over-screen{
+    display: none;
+    color: white;
+    transition: 1s;
+}
 #blackscreen{
     background-color: black;
     width: 9999px;
     height:9999px;
     position: fixed;
-    z-index: 9998;
+    z-index: 9999;
     transition: 9s;
     display: none;
     
@@ -325,6 +339,7 @@ display: none;
         /* position:fixed; */
         /* right:0px; */
         z-index: 9998;
+        font-size: 20px;
 
     }
     .player-stats-battle{

@@ -36,3 +36,9 @@ function playRunning(){
     // document.getElementById('sfx').innerHTML='';
     // }, 1000);
 }
+function stopSound(){
+    document.getElementById('sfx').innerHTML='';
+    // setTimeout(() => {
+    // document.getElementById('sfx').innerHTML='';
+    // }, 1000);
+}

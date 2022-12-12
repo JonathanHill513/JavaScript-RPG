@@ -23,10 +23,12 @@ function openOverWorldEquip(){
 function closeOverWorldEquip(){
     document.getElementById('player-overworld-equip').style.left='-1000px'; 
 }
-setTimeout(() => {
-document.getElementById('player-overworld-stats-hp').innerHTML = `<span>HEALTH: ${playerHealth}</span><br>`;
-document.getElementById('player-overworld-stats-mp').innerHTML = `<span>MANA: ${playerMana}</span><br>`;
+setInterval(() => {
+document.getElementById('player-overworld-stats-hp').innerHTML = `<span>HEALTH: ${playerHealth}/${playerMaxHealth}</span><br>`;
+document.getElementById('player-overworld-stats-mp').innerHTML = `<span>MANA: ${playerMana}/${playerMaxMana}</span><br>`;
 document.getElementById('player-overworld-stats-level').innerHTML = `<span>LVL: ${level}</span><br>`;
-document.getElementById('player-overworld-stats-exp').innerHTML = `<span>EXPERIENCE POINTS: ${currentXp}</span><br>`;
+document.getElementById('player-overworld-stats-strength').innerHTML = `<span>STRENGTH: ${playerStrength}</span><br>`;
+document.getElementById('player-overworld-stats-speed').innerHTML = `<span>SPEED: ${playerSpeed}</span><br>`;
+document.getElementById('player-overworld-stats-exp').innerHTML = `<span>EXPERIENCE: ${currentXp}</span><br>`;
 
-}, 10);
+}, 100);

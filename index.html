@@ -9,6 +9,8 @@
 </head>
 <body>
     <!-- xp loader, only temporary -->
+<div id="game-over-screen"><H2>GAME OVER!!!</H2></div>
+<div id="game-container">
 <div id="blackscreen"></div>
 <div id="sfx"></div>
 <div id="bgm"></div>
@@ -69,6 +71,8 @@
                 <div id="player-overworld-stats-hp"></div>
                 <div id="player-overworld-stats-mp"></div>
                 <div id="player-overworld-stats-level"></div>
+                <div id="player-overworld-stats-strength"></div>
+                <div id="player-overworld-stats-speed"></div>
                 <div id="player-overworld-stats-exp"></div>
                 <hr>
                 <!-- <span>EXPERIENCE POINTS: 355</span><br> -->
@@ -112,14 +116,15 @@
 <div id="controls">
    <!-- <button onclick="battle()">FIGHT</button> -->
    <button onclick="battle()">FIGHT</button>
-   <button onclick="playerMoveUp()">forward</button>
-   <button onclick="playerMoveDown()">backward</button>
-   <button onclick="playerTurnLeft()">turn left</button>
-   <button onclick="playerTurnRight()">turn right</button>
+   <button onclick="playerMoveUp()">UP</button>
+   <button onclick="playerMoveDown()">DOWN</button>
+   <button onclick="playerTurnLeft()">LEFT</button>
+   <button onclick="playerTurnRight()">RIGHT</button>
 </div>
 
 </div>
 
+</div>
 <script src="./sound/bgm/bgm.js"></script>
 <script src="./sound/sfx/sfx.js"></script>
 <script src="Overworld menu.js"></script>
