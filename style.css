@@ -1,13 +1,18 @@
-html{
-    font-family: earthboundzero ;
-}
-html button{
-    font-family: earthboundzero;
-}
 @font-face{
     font-family: earthboundzero;
     src: url(./earthboundzero.ttf);
 }
+html{
+    font-family: earthboundzero ;
+    src: url(./earthboundzero.ttf);
+
+}
+html button{
+    font-family: earthboundzero;
+    src: url(./earthboundzero.ttf);
+
+}
+
 #game-container{
     transition: 2s;
 }
