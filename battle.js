@@ -506,7 +506,13 @@ function playerDead(){
 
     setTimeout(() => {
         document.getElementById('game-container').style.opacity='0%'
+        document.getElementById('game-over-screen').style.display='block'
+        document.getElementById('game-over-screen').style.display='0%'
     }, 2000);
+    setTimeout(() => {
+        document.getElementById('game-over-screen').style.opacity='100%'
+        document.getElementById('game-container').style.display='none'
+    }, 2500);
 }    
 }
 

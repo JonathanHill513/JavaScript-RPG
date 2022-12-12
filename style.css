@@ -15,11 +15,23 @@ html button{
 
 #game-container{
     transition: 2s;
+    min-height: 200px;
 }
 #game-over-screen{
     display: none;
     color: white;
     transition: 1s;
+    opacity: 0%;
+    position: fixed;
+    text-align: center;
+    /* margin: 0px 35%; */
+    width: 100%;
+}
+#game-over-screen a{
+    color: white;
+}
+#game-over-screen img{
+    width: 30%;
 }
 #blackscreen{
     background-color: black;
