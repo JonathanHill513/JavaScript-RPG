@@ -48,10 +48,30 @@
             <div id="damagedealt"></div>
         </div>
         <div id="battlelog"></div>
-        <div id="copyright">&copyJonathan Hill 2022</div>
+        <div id="copyright">Site Created by Jonathan Hill 2022 <br>Music Created by Keiichi Suzuki and Hirokazu Tanaka</div>
 </div>
 <div id="overworld">
-    <div class="icon" id="chest" onclick="openOverWorldMenu()"></div>
+<div id="overworld-text"></div>
+
+<div id="overworld-map">
+
+<div id="player-model"><img src="./Sprites/Warrior/playerfaceright.png" alt=""></div>
+
+<div id="overworld-interactables">
+
+<a href="#"><img src="./Sprites/Background/Assets/shopdoor.gif" alt="door"></a>
+
+<div id="chest">
+    <a href="#"><img src="./Sprites/Background/Assets/Chest.png" alt="door" style="top:100px; left: 100px;" onmousedown="openChest()"></a>
+</div>
+
+
+</div>
+
+</div>
+
+
+    <div class="icon" id="menu-chest" onclick="openOverWorldMenu()"></div>
     <div id="player-overworld-menu">
         <h1>YOU</h1>
         <button onclick="closeOverWorldMenu()">BACK</button>
@@ -128,13 +148,19 @@
 </div>
 
 </div>
+<script src="overworld.js"></script>
+
 <script src="./sound/bgm/bgm.js"></script>
 <script src="./sound/sfx/sfx.js"></script>
+<script src="./FrankeinCode.js"></script>
 <script src="Overworld menu.js"></script>
 <script src="Xp.js"></script>
 <script src="battle.js"></script>
+<script src="battleStart.js"></script>
+<script src="./movement.js"></script>
+
 <script src="Run attempt.js"></script>
-<script src="overworld.js"></script>
+
 <script src="map1.js"></script>
 <script src="transitions.js"></script>
 
@@ -145,6 +171,8 @@
     <script src="dynamic-menu.js"></script>
     <script src="turnskip.js"></script>
     <script src="enemyonfire.js"></script>
+<script>
 
+</script>
 </body>
 </html>

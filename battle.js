@@ -1,3 +1,12 @@
+//MOVEMENT VARIABLES
+var playerX= 0;
+var playerDirectionFacing = 'right'
+var playerWalking = 0
+var playerSteps = 0
+var chestX= 0
+var notFighting = true
+
+//BATTLE JS CODE STARTS HERE
 //Player base stats
 var playerMaxHealth = 20
 var playerHealth = 20
@@ -8,6 +17,7 @@ var playerMana = 10
 var playerDamageBonus = 0
 var currentXp = 0;
 var level = 1;
+
 // var xpReq = 50;
 
 setInterval(() => {
@@ -155,11 +165,11 @@ var currentEnemyNum = 1;
 function enemyPick(){
 
 setInterval(() => {
-currentEnemyNumAdd = Math.floor(Math.random()*5); 
-}, 1);    
-currentEnemyNum+=currentEnemyNumAdd
-}
+currentEnemyNum = Math.floor(Math.random()*5)+1;
+console.log("current enemy num is"+currentEnemyNum+"") 
+}, 100);    
 
+}
 
 function enemyCheck(){
 if(currentEnemyNum == 1){
@@ -297,10 +307,10 @@ function scrollDown(){
 
 //Battle system
 function battle(){
+    setTimeout(enemyPick,0);    
     fightStart = true;
-
+    notFighting = false
     setTimeout(enemyCheck,0);
-    setTimeout(enemyPick,1);
     setTimeout(playSong1,1);
     setTimeout(() => {
         document.getElementById('enemy').innerHTML=currentEnemyImg;
@@ -526,4 +536,99 @@ function fightOver(){
     document.getElementById('battlelog').innerHTML="";
     skipEnemy = 0;
     setTimeout(stopMusic,100);
+    notFighting = true
 }
+//BATTLE JS CODE ENDS HERE!-------------------
+
+//MOVEMENT CODE STARTS HERE-------------------
+// //MOVEMENT VARIABLES
+// var playerX= 0;
+// var playerDirectionFacing = 'right'
+// var playerWalking = 0
+// var playerSteps = 0
+// var chestX= 0
+// var notFighting = 0
+
+//Movement/sprite changes
+window.addEventListener('keydown', (e) => {
+    // switch(e.key){
+    //     case 'w':
+    //     console.log('x= '+playerX+'')
+    // }
+    switch(e.key){
+        case 'd':
+ 
+        document.getElementById('player-model').innerHTML='<img src="./Sprites/Warrior/playerwalkright.gif" alt="">'
+
+        if(notFighting==true){
+            playerX-=10
+            chestX-=10
+            playerDirectionFacing = 'right'
+            console.log('x= '+playerX+' player steps= '+playerSteps+'')
+            playerSteps++      
+    }else{break;}
+
+//Fight start from walking conditions
+
+        
+        // setInterval(playerWalkingCheck,10)
+    }
+
+
+    switch(e.key){
+  
+        case 'a':
+        document.getElementById('player-model').innerHTML='<img src="./Sprites/Warrior/playerwalkleft.gif" alt="">'
+
+    if(notFighting==true){
+        playerX+=10
+        chestX+=10
+        playerDirectionFacing = 'left'
+        console.log('x= '+playerX+' player steps= '+playerSteps+'')
+        playerSteps++      
+}else{break;}
+             
+    }
+   
+})
+// function playerWalkingCheck(){
+// playerWalking = 1
+// setTimeout(() => {
+//     playerWalking = 0
+// }, 500);
+// }
+
+// function checkPlayerAnimation(){
+// if (playerWalking=0 && playerDirectionFacing=='right'){
+//     document.getElementById('player-model').innerHTML='<img src="./Sprites/Warrior/playerfaceright.png" alt="">'
+// }
+// }
+
+setInterval(() => {
+    document.getElementById('overworld-map').style.backgroundPositionX=`${playerX}px`
+    document.getElementById('overworld-interactables').style.left=`${playerX}px`
+    document.getElementById('chest').innerHTML=`<a href="#"><img src="./Sprites/Background/Assets/Chest.png" alt="door" style="top:100px; left: ${chestX}px;" onmousedown="openChest()"></a>`
+}, 1);
+
+//Loop dungeon, check
+setInterval(() => {
+if(playerX>=5001){
+    playerX+=-9999;
+    // chestX+=-9999;
+
+//Resets chest position if you loop the stage
+    setTimeout(chestReset, 0);
+}    
+if(playerX<=-5001){
+    playerX+=9999;
+    // chestX+=9999;
+
+//Resets chest position if you loop the stage
+    setTimeout(chestReset, 0);
+}    
+}, 10);
+
+
+
+
+

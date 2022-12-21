@@ -12,6 +12,47 @@ html button{
     src: url(./earthboundzero.ttf);
 
 }
+#player-model img{
+    position: fixed;
+    z-index: 9999;
+    margin: 0px 35%;
+    width: 20%;
+    top:10%
+}
+#overworld-map{
+background-image: url('./Sprites/Background/BG-big.png');
+height: 40%;
+min-height: 300px;
+width: 90%;
+position: fixed;
+margin: 0px 5%;
+transition: .1s;
+background-size: contain;
+/* background-position:  */
+}
+#overworld-interactables{
+/* width: 100%; */
+position: fixed;
+transition: .1s;
+top: 103px;
+}
+#overworld-interactables img{
+    /* height: 100px; */
+    position: fixed;
+    height: 40%;
+    transition: .1s;
+}
+#chest{
+    transition: .1s;
+    left: 100px;
+}
+#overworld-text{
+    color: white;
+    position:fixed;
+    width: 100%;
+    text-align: center;
+    top: 400px;
+}
 
 #game-container{
     transition: 2s;
@@ -88,7 +129,7 @@ html button{
     color: white;
     border-radius: 25px;
 }
-#chest{
+#menu-chest{
     background-image: url('./chest.png');
     background-position: center;
     background-size: 100px;
